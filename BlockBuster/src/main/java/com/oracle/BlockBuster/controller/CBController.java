@@ -97,7 +97,7 @@ public class CBController {
 		
 		
 		 /*-----------------FAQ 삭제-----------------*/	
-		@RequestMapping(value = "FAQ/deleteCB")
+		@RequestMapping(value = "deleteCB")
 		public String deleteCB(int f_no, Model model) {
 			System.out.println("CBController Start deleteCB....");
 			int result = fs.deleteCB(f_no);
