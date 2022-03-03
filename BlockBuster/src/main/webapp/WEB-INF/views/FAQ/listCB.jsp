@@ -191,6 +191,34 @@ body{
 
 
 </style>
+
+<script type="text/javascript">
+
+function (Vindex){
+	
+	if (confirm("정말 삭제하시겠습니까?") == true){   
+		
+		var cnoNo = $('#cnoNo'+Vindex).val(); //cno값을 가져옴
+		
+			$.ajax({
+				url : "${pageContext.request.contextPath}/FAQ/deleteCB",
+				data : {f_no : cnoNo},
+			 	dataType :'text', 
+				success : function(data){
+					if(data == '1'){
+						$('#cno1'+Vindex).remove();
+					 	$('#cno2'+Vindex).remove();
+					 	$('#cno3'+Vindex).remove();
+					}
+				}
+			});
+			
+	}else{  
+	 	   return false;	
+		 } 
+}
+
+</script>
 </head>
 <body>
 <pre>
@@ -208,7 +236,7 @@ body{
  <table class="b">
  	<tr><th>No</th><th>제목</th></tr>
  </table>
-<table>
+<%-- <table>
 	<c:forEach var="faq" items="${listFaq }">		
 	<button class="accordion"> ${faq.f_no}&emsp;&emsp;&emsp;&emsp;&emsp;${faq.f_title }</button>
 		<div class="panel">
@@ -218,6 +246,28 @@ body{
 			<input type="button"  value="수정" onclick="location.href='${pageContext.request.contextPath}/FAQ/updateFormCB?f_no=${faq.f_no}'">
 			<input type="button"  value="삭제" onclick="location.href='${pageContext.request.contextPath}/FAQ/deleteCB?f_no=${faq.f_no}'">	
 		</c:if>	
+  			</p>
+		</div>
+		<br>	
+	</c:forEach>
+</table> --%>
+
+
+<!--  수정 삭제 ajax로 하는 중 -->
+<table>
+	<c:forEach var="faq" items="${listFaq }">		
+	<button class="accordion"> ${faq.f_no}&emsp;&emsp;&emsp;&emsp;&emsp;${faq.f_title }</button>
+		<div class="panel">
+  			<p>${faq.f_content } <br><br><br>		
+  	<!-- ------------------------------ admin 권한 설정하기 --------------------------------------- -->
+		<c:if test="${sessionScope.sessionId eq 'admin' }">
+			<input class="delete-address-item" type="button"  value="수정" onclick="location.href='${pageContext.request.contextPath}/FAQ/updateFormCB?f_no=${faq.f_no}'">
+			<a class="modify-mode-none" href="#" id="edit${status.index}" onclick="location.href='${pageContext.request.contextPath}/FAQ/updateFormCB?f_no=${faq.f_no}' return false;">수정</a>	
+			<button class="delete-address-item" onclick="${pageContext.request.contextPath}/FAQ/deleteCB?f_no=${faq.f_no}">휴지통
+				<span class="glyphicon glyphicon-trash" style=" vertical-align: middle;">
+				</span>
+			</button>
+		</c:if>
   			</p>
 		</div>
 		<br>	
@@ -242,30 +292,19 @@ body{
  	<a href="${pageContext.request.contextPath}/FAQ/listCB?currentPage=${pg.startPage+pg.pageBlock }&search_option=${Search_option}">➡︎︎</a></li>
  </c:if>
 </ul> 
- <%-- 
-<c:set var="num" value="${pg.total-pg.start+1 }"></c:set>
-<c:set var="num" value="${num - 1 }"></c:set>
 
-<div class="page_wrap">
-   	<div class="page_nation">
-<c:if test="${pg.startPage > pg.pageBlock }">
- 	<a class="arrow prev" href="<%=context%>/FAQ/listCB?currentPage=${pg.startPage-pg.pageBlock }">⬅︎</a>
- </c:if>
- <c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
- 	<a class="active" href="<%=context%>/FAQ/listCB?currentPage=${i }"> ${i}</a>
- </c:forEach>
- <c:if test="${pg.endPage < pg.totalPage }">
- 	<a class="arrow next" href="<%=context%>/FAQ/listCB?currentPage=${pg.startPage+pg.pageBlock }">➡︎</a></li>
- </c:if>
-</div>
-	</div> --%>
+
 <!-- ------------------------------ admin 권한 설정하기 --------------------------------------- --> 	
 <c:if test="${sessionScope.sessionId eq 'admin' }"> 
 	<input type="button" value="입력" onclick="location.href='${pageContext.request.contextPath}/FAQ/writeFormCB'" class="button">	
-	</c:if>
+</c:if>
+
 	&nbsp; 
+<!-- 일반 유저는 가능 -->	
 	<input type="button" value="목록" onclick="location.href='${pageContext.request.contextPath}/FAQ/listCB'" class="button"><p>
 
+
+<!-- 아코디언 기능 스크립트  -->
 <script>
 var acc = document.getElementsByClassName("accordion");
 var i;
