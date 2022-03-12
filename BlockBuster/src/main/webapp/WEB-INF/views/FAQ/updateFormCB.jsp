@@ -7,7 +7,24 @@
 <head>
 <meta charset="UTF-8">
 <title>updateForm</title>
+<script type="text/javascript">
 
+	/* 내용 기입 여부 검증 */
+	function insertCheck(){
+		if(f_title.value.length == 0){
+			alert("제목을 입력해주세요.");
+			f_title.focus();
+			return;
+		}else if(r_content.value.length == 0){
+			alert("내용을 입력해주세요.");
+			f_content.focus();
+			return;
+		}else{
+			$('#frm').submit();
+		}
+	} 
+
+</script>
 <style type="text/css">
 body {	
 	font: sans-serif; 
@@ -93,7 +110,7 @@ body {
 </pre>
 <div class="container">
 	<h2>FAQ 수정</h2>
-	<form action="updateCB" method="post">
+	<form action="updateCB" id="frm" method="post">
   		<input type="hidden" name="f_no" value="${cbFaqdto.f_no}">
   		<input type="hidden" name="id"  value="${cbFaqdto.id}" >
          
@@ -106,7 +123,7 @@ body {
 	    	<textarea class="f_content" name="f_content" required="required" value="${cbFaqdto.f_content }" >${cbFaqdto.f_content }</textarea></td></tr>
 		<tr><td colspan="2">
 	   		<button type="submit" value="확인">확인</button>
-			<button type="button" value="취소" onclick="location.href='${pageContext.request.contextPath}/listCB'">취소</button>
+			<button type="button" value="취소" onclick="location.href='${pageContext.request.contextPath}/FAQ/listCB'">취소</button>
 	   		</td>
 		</tr>
 	</table>

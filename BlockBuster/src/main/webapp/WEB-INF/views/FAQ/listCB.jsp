@@ -194,28 +194,13 @@ body{
 
 <script type="text/javascript">
 
-function (Vindex){
+function d_chk(){
 	
-	if (confirm("정말 삭제하시겠습니까?") == true){   
-		
-		var cnoNo = $('#cnoNo'+Vindex).val(); //cno값을 가져옴
-		
-			$.ajax({
-				url : "${pageContext.request.contextPath}/FAQ/deleteCB",
-				data : {f_no : cnoNo},
-			 	dataType :'text', 
-				success : function(data){
-					if(data == '1'){
-						$('#cno1'+Vindex).remove();
-					 	$('#cno2'+Vindex).remove();
-					 	$('#cno3'+Vindex).remove();
-					}
-				}
-			});
-			
+	if (confirm("정말 삭제하시겠습니까? 삭제시 복원이 불가능 합니다.") == true){   
+		location.href="deleteCB?f_no=${faq.f_no}"
 	}else{  
 	 	   return false;	
-		 } 
+		 }
 }
 
 </script>
@@ -236,7 +221,7 @@ function (Vindex){
  <table class="b">
  	<tr><th>No</th><th>제목</th></tr>
  </table>
-<%-- <table>
+<table>
 	<c:forEach var="faq" items="${listFaq }">		
 	<button class="accordion"> ${faq.f_no}&emsp;&emsp;&emsp;&emsp;&emsp;${faq.f_title }</button>
 		<div class="panel">
@@ -246,35 +231,29 @@ function (Vindex){
 			<input type="button"  value="수정" onclick="location.href='${pageContext.request.contextPath}/FAQ/updateFormCB?f_no=${faq.f_no}'">
 			<input type="button"  value="삭제" onclick="location.href='${pageContext.request.contextPath}/FAQ/deleteCB?f_no=${faq.f_no}'">	
 		</c:if>	
-  			</p>
-		</div>
-		<br>	
-	</c:forEach>
-</table> --%>
-
-
-<!--  수정 삭제 ajax로 하는 중 -->
-<table>
-	<c:forEach var="faq" items="${listFaq }">		
-	<button class="accordion"> ${faq.f_no}&emsp;&emsp;&emsp;&emsp;&emsp;${faq.f_title }</button>
-		<div class="panel">
-  			<p>${faq.f_content } <br><br><br>		
-  	<!-- ------------------------------ admin 권한 설정하기 --------------------------------------- -->
-		<c:if test="${sessionScope.sessionId eq 'admin' }">
-			<input class="delete-address-item" type="button"  value="수정" onclick="location.href='${pageContext.request.contextPath}/FAQ/updateFormCB?f_no=${faq.f_no}'">
-			<a class="modify-mode-none" href="#" id="edit${status.index}" onclick="location.href='${pageContext.request.contextPath}/FAQ/updateFormCB?f_no=${faq.f_no}' return false;">수정</a>	
-			<button class="delete-address-item" onclick="${pageContext.request.contextPath}/FAQ/deleteCB?f_no=${faq.f_no}">휴지통
-				<span class="glyphicon glyphicon-trash" style=" vertical-align: middle;">
-				</span>
-			</button>
-		</c:if>
+		
+		
+		
+		
+		
+	<%-- 	<c:if test="${sessionScope.sessionId eq 'admin' }">	  			
+			<input type="button"  value="수정" onclick="location.href='${pageContext.request.contextPath}/FAQ/updateFormCB?f_no=${faq.f_no}'">
+			
+			<!-- 기존 삭제 기능 -->
+			<input type="button"  value="삭제" onclick="location.href='${pageContext.request.contextPath}/FAQ/deleteCB?f_no=${faq.f_no}'">
+			<!-- Ajax로 삭제 여부 체크 후 삭제 -->
+			<!-- <input type="button"  value="삭제" onclick="d_chk();">	 -->
+			<a href="" class="text-muted" onclick="d_chk(); return false;">삭제</a>&emsp;
+		</c:if> --%>	
+		
+		
   			</p>
 		</div>
 		<br>	
 	</c:forEach>
 </table>
-
 <pre>
+
 
 </pre>
 <!-- ------------------------------ 페이징처리 --------------------------------------- -->

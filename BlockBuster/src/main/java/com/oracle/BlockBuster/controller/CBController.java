@@ -97,10 +97,11 @@ public class CBController {
 		
 		
 		 /*-----------------FAQ 삭제-----------------*/	
-		@RequestMapping(value = "deleteCB")
+		@RequestMapping(value = "FAQ/deleteCB")
 		public String deleteCB(int f_no, Model model) {
 			System.out.println("CBController Start deleteCB....");
 			int result = fs.deleteCB(f_no);
+			Integer integer = result;
 			return "redirect:listCB";
 		}
 		/* 삭제시 번호가 비는 현상은 시퀀스 사용할 때 어쩔 수 없는 현상 */

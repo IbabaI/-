@@ -10,6 +10,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>writeForm</title>
+
+<script type="text/javascript">
+
+	/* 내용 기입 여부 검증 */
+	function insertCheck(){
+		if(f_title.value.length == 0){
+			alert("제목을 입력해주세요.");
+			f_title.focus();
+			return;
+		}else if(r_content.value.length == 0){
+			alert("내용을 입력해주세요.");
+			f_content.focus();
+			return;
+		}else{
+			$('#frm').submit();
+		}
+	} 
+
+</script>
+
 <style type="text/css">
 body {	
 	font-family: sans-serif; 
@@ -95,7 +115,7 @@ body {
 <div class="container">
  <h2>FAQ 등록</h2>
 <!--FAQ/writeCB를 제대로 못찾아가서 context 사용  -->
- <form action="${pageContext.request.contextPath}/writeCB" method="post" >
+ <form action="${pageContext.request.contextPath}/writeCB" id="frm" method="post" >
  <!-- 시퀀스로 가져가는 값은 자동으로 변경되기때문에 hidden으로 안가져가도 된다 -->
  <input type="hidden" name="id"  value="admin" > 
  <!-- <input type="hidden" name="f_no" value="1"> --><!-- f_no 안될때 확인해보는 곳 -->
@@ -113,7 +133,7 @@ body {
     <tr>
     	<td colspan="2">
     	<button type="submit" value="확인">확인</button> &nbsp; 
-    	<button type="button" value="취소" onclick="location.href='${pageContext.request.contextPath}/listCB'">취소</button>
+    	<button type="button" value="취소" onclick="location.href='${pageContext.request.contextPath}/FAQ/listCB'">취소</button>
     	</td>
     </tr> 
   </table>

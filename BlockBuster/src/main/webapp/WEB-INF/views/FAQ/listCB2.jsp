@@ -235,7 +235,7 @@ h3{
 </c:when>
 <c:when test="${empty listFaq}"> <!-- 키워드는 입력했지만 검색결과가 없을때  -->
 <br><h3>검색결과가 존재하지 않습니다. 검색어를 달리해서 입력하세요.</h3>
-</c:when>
+</c:when> 
 </c:choose>
 </c:when>
 </c:choose>
@@ -280,8 +280,10 @@ h3{
 	<input type="button" value="입력" onclick="location.href='<%=context%>/FAQ/writeFormCB'" class="button">	
 	</c:if>
 	&nbsp; 
+<!-- 일반 유저는 가능 -->
 	<input type="button" value="목록" onclick="location.href='<%=context%>/FAQ/listCB'" class="button"><p>
 
+<!-- 아코디언 기능 스크립트  -->
 <script>
 var acc = document.getElementsByClassName("accordion");
 var i;
