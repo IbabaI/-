@@ -33,6 +33,7 @@
 		<!-- 이창빈 -->
 		<typeAlias alias="CBfaqDto" 		type="com.oracle.BlockBuster.model.CBfaqDto"/>
 		<typeAlias alias="CBSearchVO" 		type="com.oracle.BlockBuster.model.CBSearchVO"/>
+		<typeAlias alias="NoticeDto" 		type="com.oracle.BlockBuster.model.NoticeDto"/>
 		
 		<!-- 김동현 -->
 		<typeAlias alias="MemberDto" type="com.oracle.BlockBuster.model.Member"/>

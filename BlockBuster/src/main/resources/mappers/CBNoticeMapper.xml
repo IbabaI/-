@@ -8,6 +8,19 @@
 		select count(*) from notice	
 	</select>
 	
+	<!-- list 화면, paging 처리 -->
+	<select id="cbNoticeList" parameterType="noticeDto" resultType="noticeDto">
+		select *
+		from(
+			SELECT rownum rn ,  a.*
+		    FROM  (select * from notice order by n_no DESC) a
+		)
+		where rn between #{start} AND  #{end}  <!--  between 는 >=를 의미 -->
+	</select>
+	
+	<select id="cbNoticeDetail" parameterType="int" resultType="noticeDto">
+		select * from notice where n_no = #{n_no}
+	</select>
 	
 </mapper>
 
