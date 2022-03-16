@@ -2,6 +2,8 @@ package com.oracle.BlockBuster.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,8 @@ import com.oracle.BlockBuster.model.NoticeDto;
 
 @Service
 public class NoticeServiceImpl implements NoticeService {
+	
+	private static final Logger logger = LoggerFactory.getLogger(NoticeService.class);
 
 	/*----------------- Dao연결 -----------------*/
 	@Autowired
@@ -38,11 +42,23 @@ public class NoticeServiceImpl implements NoticeService {
 	/*----------------- 상세보기 -----------------*/
 	@Override
 	public NoticeDto noticeDetail(int n_no) {
-		System.out.println("NoticeServiceImpl Start noticeDetail...");
+		logger.info("NoticeServiceImpl noticeDetail 상세보기시작");
+		/* System.out.println("NoticeServiceImpl Start noticeDetail..."); */
 		NoticeDto noticeDto = null;
 		noticeDto = nd.noticeDetail(n_no);
+		logger.info("NoticeServiceImpl noticeDetail  noticeDto.getN_no() =>>>" + noticeDto.getN_no());
 		
 		return noticeDto;
+	}
+
+	/* ------------------- 수정 ------------------- */
+	@Override
+	public NoticeDto noticeContent(int n_no) {
+		logger.info("NoticeServiceImpl noticeContent 수정시작");
+		NoticeDto noticeDto = null;
+		noticeDto = nd.noticeContent(n_no);
+				
+		return null;
 	}
 	
 }

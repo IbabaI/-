@@ -56,10 +56,33 @@ public class NoticeController {
 	public String noticeDetail(int n_no, Model model) {
 		logger.info("NoticeController noticeDetail 시작");
 		NoticeDto noticeDto = ns.noticeDetail(n_no);
+		
+		logger.debug("NoticeController noticeDto =>> " +noticeDto.getN_content());
 		model.addAttribute("noticeDto", noticeDto);
 		
 		return "Notice/noticeDetail";
 	}
+	
+	/* ------------------- 수정 ------------------- */
+	@GetMapping(value = "Notice/updateFormNotice")
+	public String noticeUpdateForm(int n_no, Model model) {
+		logger.info("NoticeController noticeUpdateForm 시작");
+		
+		NoticeDto noticeDto = ns.noticeContent(n_no);
+		logger.info("NoticeController noticeUpdateForm" + noticeDto.getN_content());
+		model.addAttribute("noticeDto", noticeDto);
+		
+		return "Notice/updateFormNotice";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

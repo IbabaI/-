@@ -9,5 +9,7 @@ public interface NoticeDao {
 
 	List<NoticeDto> 	listNotice(NoticeDto noticeDto);
 
-	NoticeDto 			noticeDetail(int n_no); 
+	NoticeDto 			noticeDetail(int n_no);
+
+	NoticeDto 			noticeContent(int n_no);  
 }

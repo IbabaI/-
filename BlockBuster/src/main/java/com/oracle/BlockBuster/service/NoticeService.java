@@ -7,5 +7,6 @@ import com.oracle.BlockBuster.model.NoticeDto;
 public interface NoticeService {
 	int 					total();
 	List<NoticeDto> 		listNotice(NoticeDto noticeDto);
-	NoticeDto 				noticeDetail(int n_no);  
+	NoticeDto 				noticeDetail(int n_no);
+	NoticeDto 				noticeContent(int n_no);   
 }

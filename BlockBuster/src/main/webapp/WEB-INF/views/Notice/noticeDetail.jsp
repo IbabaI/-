@@ -15,11 +15,12 @@
 
 </pre>
 	<div>
-		<h3 class="card-header">${notice.n_title }</h3>
-		<h6 class="card-cubtitle">작성자 : ${notice.nickName }&emsp;|&emsp;${notice.n_hit }&emsp;|&emsp;${notice.n_date }</h6>
+		<h3 class="card-header">${noticeDto.n_no }</h3>
+		<h3 class="card-header">${noticeDto.n_title }</h3>
+		<h6 class="card-cubtitle">작성자 : admin  &emsp;|&emsp;${noticeDto.n_date }&emsp;|&emsp;${noticeDto.n_hit} </h6>
 	
 		<div>
-			${notice.n_content }
+			<h6>${notice.n_content }</h6>
 		</div>
 	
 	</div>
