@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.oracle.BlockBuster.model.NoticeDto;
 
 
+
 @Repository
 public class NoticeDaoImpl implements NoticeDao {
 	
@@ -66,7 +67,7 @@ public class NoticeDaoImpl implements NoticeDao {
 		
 		try {
 			noticeDto = session.selectOne("cbNoticeDetail", n_no);
-			logger.info("NoticeDaoImpl noticeDetail noticeDto.getN_no() =>>>" + noticeDto.getId());
+			logger.info("NoticeDaoImpl noticeDetail noticeDto.getN_no() =>>>" + noticeDto.getN_no());
 			
 		}catch (Exception e) {
 			
@@ -82,13 +83,29 @@ public class NoticeDaoImpl implements NoticeDao {
 		NoticeDto noticeDto = new NoticeDto();
 		
 		try {
+			noticeDto = session.selectOne("cbNoticeContent", n_no);
+			logger.info("NoticeDaoImpl noticeContent + noticeDto.getN_no() =>" + noticeDto.getN_no());
 			
 		}catch (Exception e) {
-			
+			logger.info("NoticeDaoImpl noticeContent Exception =>>>" + e.getMessage());
+		}
+		logger.info("NoticeDaoImpl noticeContent + noticeDto.getN_title() =>>>>>" + noticeDto.getN_title());
+		
+		return noticeDto;
+	}
+	/* ------------------- 수정-저장하기 ------------------- */
+	@Override
+	public int noticeUpdate(NoticeDto noticeDto) {
+		logger.info("NoticeDaoImpl noticeUpdate Start..");
+		int aaa = 0;
+		try {
+			aaa = session.update("cbNoticeUpdate", noticeDto);
+			logger.info("NoticeDaoImpl noticeUpdate + aaa =>" + aaa);
+		}catch (Exception e) {
+			logger.info("NoticeDaoImpl noticeUpdate Exception =>>>" + e.getMessage());
 		}
 		
-		
-		return null;
+		return aaa;
 	}
 	
 	

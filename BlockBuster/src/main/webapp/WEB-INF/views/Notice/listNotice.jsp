@@ -32,9 +32,9 @@
 		</tr>
 		<c:forEach var="notice" items="${listNotice }">
 		<tr class="list2">
-			<td onclick="location.href='${pageContext.request.contextPath}/Notice/noticeDetail?r_no=${notice.n_no}'">${notice.n_no }</td>
-			<td onclick="location.href='${pageContext.request.contextPath}/Notice/noticeDetail?r_no=${notice.n_no}'">${notice.n_title }</td>
-			<td onclick="location.href='${pageContext.request.contextPath}/Notice/noticeDetail?r_no=${notice.n_no}'">${notice.id }</td>
+			<td onclick="location.href='${pageContext.request.contextPath}/Notice/noticeDetail?n_no=${notice.n_no}'">${notice.n_no }</td>
+			<td onclick="location.href='${pageContext.request.contextPath}/Notice/noticeDetail?n_no=${notice.n_no}'">${notice.n_title }</td>
+			<td onclick="location.href='${pageContext.request.contextPath}/Notice/noticeDetail?n_no=${notice.n_no}'">${notice.id }</td>
 			<td>${notice.n_hit }</td>
 			<td>${notice.n_date }</td>
 		</tr>

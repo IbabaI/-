@@ -57,8 +57,18 @@ public class NoticeServiceImpl implements NoticeService {
 		logger.info("NoticeServiceImpl noticeContent 수정시작");
 		NoticeDto noticeDto = null;
 		noticeDto = nd.noticeContent(n_no);
+		logger.info("NoticeServiceImpl noticeContent  noticeDto.getN_no() =>>>" + noticeDto.getN_no());
 				
-		return null;
+		return noticeDto;
+	}
+	/* ------------------- 수정-저장하기 ------------------- */
+	@Override
+	public int noticeUpdate(NoticeDto noticeDto) {
+		logger.info("NoticeServiceImpl noticeUpdate 수정완료시작 ");
+		int aaa = 0;
+		aaa = nd.noticeUpdate(noticeDto);
+		
+		return aaa;
 	}
 	
 }

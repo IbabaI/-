@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.oracle.BlockBuster.model.NoticeDto;
@@ -57,7 +58,7 @@ public class NoticeController {
 		logger.info("NoticeController noticeDetail 시작");
 		NoticeDto noticeDto = ns.noticeDetail(n_no);
 		
-		logger.debug("NoticeController noticeDto =>> " +noticeDto.getN_content());
+		logger.debug("NoticeController noticeDetail +noticeDto.getN_content() =>> " + noticeDto.getN_content());
 		model.addAttribute("noticeDto", noticeDto);
 		
 		return "Notice/noticeDetail";
@@ -67,17 +68,25 @@ public class NoticeController {
 	@GetMapping(value = "Notice/updateFormNotice")
 	public String noticeUpdateForm(int n_no, Model model) {
 		logger.info("NoticeController noticeUpdateForm 시작");
-		
 		NoticeDto noticeDto = ns.noticeContent(n_no);
-		logger.info("NoticeController noticeUpdateForm" + noticeDto.getN_content());
+		
+		logger.info("NoticeController noticeUpdateForm noticeDto.getN_content() =>>" + noticeDto.getN_content());
 		model.addAttribute("noticeDto", noticeDto);
 		
 		return "Notice/updateFormNotice";
 	}
 	
-	
-	
-	
+	/* ------------------- 수정-저장하기 ------------------- */
+	@PostMapping(value = "Notice/noticeUpdate")
+	public String noticeUpdate(NoticeDto noticeDto, Model model ) {
+		logger.info("NoticeController noticeUpdate 시작");
+		
+		int upNoti = ns.noticeUpdate(noticeDto);
+		logger.info("NoticeController + upNoti =>> " + upNoti);
+		model.addAttribute("upNoti", upNoti );
+		
+		return"forward:Notice/listNotice";
+	}
 	
 	
 	
