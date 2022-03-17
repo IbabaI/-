@@ -104,7 +104,7 @@ public class NoticeDaoImpl implements NoticeDao {
 		}catch (Exception e) {
 			logger.info("NoticeDaoImpl noticeUpdate Exception =>>>" + e.getMessage());
 		}
-		
+		logger.info("NoticeDaoImpl noticeUpdate + aaa =>>>>>" + aaa);
 		return aaa;
 	}
 	

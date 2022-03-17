@@ -85,7 +85,7 @@ public class NoticeController {
 		logger.info("NoticeController + upNoti =>> " + upNoti);
 		model.addAttribute("upNoti", upNoti );
 		
-		return"forward:Notice/listNotice";
+		return"forward:listNotice";
 	}
 	
 	
