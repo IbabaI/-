@@ -51,13 +51,13 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeDto;
 	}
 	/* ------------------- 조회수 증가 ------------------- */
-	@Override
-	public void NoticeHit(int n_no) {
-		logger.info("NoticeServiceImpl NoticeHit 조회수 증가시작");
-		
-		nd.NoticeHit(n_no);
-		
-	}
+//	@Override
+//	public void NoticeHit(int n_no) {
+//		logger.info("NoticeServiceImpl NoticeHit 조회수 증가시작");
+//		
+//		nd.NoticeHit(n_no);
+//		
+//	}
 
 	/* ------------------- 수정 ------------------- */
 	@Override
@@ -78,6 +78,19 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		return aaa;
 	}
+	/* ------------------- 쓰기-저장하기 ------------------- */
+	@Override
+	public int insert(NoticeDto noticeDto) {
+		int result = 0;
+		logger.info("NoticeServiceImpl insert 쓰기 저장 시작");
+		result = nd.insert(noticeDto);
+		
+		return result;
+	}
+
+	
+	
+	
 	/* ------------------- 삭제 ------------------- */
 	@Override
 	public int noticeDelete(int n_no) {
@@ -87,6 +100,7 @@ public class NoticeServiceImpl implements NoticeService {
 		return result;
 	}
 
+	
 	
 	
 }

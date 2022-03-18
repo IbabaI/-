@@ -24,9 +24,9 @@
 	</select>
 	
 	<!-- 조회수 증가 -->
-	<update id="cbNoticeHit">
+<!-- 	<update id="cbNoticeHit">
 		update notice SET n_hit=n_hit+1 where n_no=#{n_no}
-	</update>
+	</update> -->
 	
 	<!-- 수정화면보기 -->
 	<select id="cbNoticeContent" parameterType="int" resultType="noticeDto">
@@ -39,9 +39,17 @@
 		 where n_no=#{n_no}
 	</update>
 	
+	<!-- 쓰기저장완료 -->
+	<insert id="cbNoticeWrite" parameterType="noticeDto">
+		insert into notice(n_no, id, n_title, n_content )values(NOTICE_N_NO_SEQ.nextval, #{id}, #{n_title}, #{n_content} )
+	</insert>
+	
 	<!-- 삭제 -->
-<!-- 	<delete id="cbNoticeDelete" parameterType="noticeDto">
+	<delete id="cbNoticeDelete" parameterType="noticeDto">
 		delete from notice where n_no=#{n_no}
-	</delete> -->
+	</delete>
+	
+	
+	
 </mapper>
 

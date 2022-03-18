@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.oracle.BlockBuster.model.NoticeDto;
 import com.oracle.BlockBuster.service.NoticeService;
@@ -67,9 +68,9 @@ public class NoticeController {
 		model.addAttribute("noticeDto", noticeDto);
 		
 	/* ------------------- 조회수 증가 ------------------- */
-		logger.info("NoticeController NoticeHit 시작");
-		n_no = noticeDto.getN_no();
-		ns.NoticeHit(n_no);	
+//		logger.info("NoticeController NoticeHit 시작");
+//		n_no = noticeDto.getN_no();
+//		ns.NoticeHit(n_no);	
 		
 		return "Notice/noticeDetail";
 	}
@@ -98,8 +99,28 @@ public class NoticeController {
 		return"forward:listNotice";
 	}
 	
+	/* ------------------- 쓰기 ------------------- */
+	@RequestMapping(value = "Notice/writeFormNotice")
+	public String writeFormNotice(Model model) {
+		logger.info("NoticeController writeFormNotice 쓰기시작");
+		
+		return "Notice/writeFormNotice";
+	}
+	
+	/* ------------------- 쓰기-저장하기 ------------------- */
+	@RequestMapping(value = "writeNotice", method = RequestMethod.POST)
+	public String writeNotice(NoticeDto noticeDto, Model model) {
+		logger.info("NoticeController writeNotice 쓰기 저장 시작");
+		int result = ns.insert(noticeDto);
+		if(result > 0) {
+			return "redirect:notice/listNotice";
+		}
+			model.addAttribute("입력 실패 - 확인해보세요");
+			return "forward:Notice/noticeWrite";
+	}
+	
 	/* ------------------- 삭제 ------------------- */
-	@RequestMapping(value = "delete")
+	@RequestMapping(value = "Notice/noticeDelete")
 	public String noticeDelete(int n_no, Model model) {
 		logger.info("NoticeController noticeDelete 시작");
 		int result = ns.noticeDelete(n_no);

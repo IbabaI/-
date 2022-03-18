@@ -78,17 +78,17 @@ public class NoticeDaoImpl implements NoticeDao {
 	}
 	
 	/* ------------------- 조회수 증가 ------------------- */
-	@Override
-	public void NoticeHit(int n_no) {
-		logger.info("NoticeDaoImpl NoticeHit 조회수 증가 시작");
-		
-		try {
-			session.update("cbNoticeHit", n_no);
-		}catch (Exception e) {
-			logger.info("NoticeDaoImpl NoticeHit Exception발생 =>>>>" + e.getMessage());
-		}
-		
-	}
+//	@Override
+//	public void NoticeHit(int n_no) {
+//		logger.info("NoticeDaoImpl NoticeHit 조회수 증가 시작");
+//		
+//		try {
+//			session.update("cbNoticeHit", n_no);
+//		}catch (Exception e) {
+//			logger.info("NoticeDaoImpl NoticeHit Exception발생 =>>>>" + e.getMessage());
+//		}
+//		
+//	}
 	
 	/* ------------------- 수정 ------------------- */
 	@Override
@@ -121,6 +121,22 @@ public class NoticeDaoImpl implements NoticeDao {
 		logger.info("NoticeDaoImpl noticeUpdate + aaa =>>>>>" + aaa);
 		return aaa;
 	}
+	
+	/* ------------------- 쓰기 - 저장하기 ------------------- */
+	@Override
+	public int insert(NoticeDto noticeDto) {
+		int result = 0;
+		logger.info("NoticeDaoImpl insert 쓰기 저장하기 시작");
+		
+		try {
+			result = session.insert("cbNoticeWrite", noticeDto);
+		} catch (Exception e) {
+			logger.info("NoticeDaoImpl insert Exception 발생 =>>>" + e.getMessage());
+		}
+		
+		return result;
+	}
+	
 	/* ------------------- 삭제 ------------------- */
 	@Override
 	public int noticeDelete(int n_no) {
@@ -134,6 +150,8 @@ public class NoticeDaoImpl implements NoticeDao {
 		}
 		return result;
 	}
+
+	
 
 	
 	

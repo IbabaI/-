@@ -30,6 +30,8 @@
 			<input type="button" value="수정" onclick="location.href='${pageContext.request.contextPath}/Notice/updateFormNotice?n_no=${noticeDto.n_no}'">
 			
 			<a href="${pageContext.request.contextPath}/Notice/updateFormNotice?n_no=${noticeDto.n_no}" >수정</a>
+			<button type="button" value="목록" onclick="location.href='javascript:window.history.back();'">목록</button>
+			<input type="button" value="삭제" onclick="location.href='${pageContext.request.contextPath}noticeDelete?n_no=${noticeDto.n_no}'">
 		</div>	
 	</div>
 </div>

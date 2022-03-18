@@ -50,7 +50,7 @@
 			<tr><td colspan="2">
 	   		<button type="submit" value="저장"  onclick="insertCheck();return false;">저장</button>
 			<button type="button" value="취소" onclick="location.href='javascript:window.history.back();'">취소</button>
-	   		<button type="button" value="삭제" onclick="location.href='javascript:window.history.back();'">삭제</button>
+	   		
 	   		</td>
   </form>
 	</div>
