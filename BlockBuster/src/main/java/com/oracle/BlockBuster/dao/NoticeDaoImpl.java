@@ -26,7 +26,7 @@ public class NoticeDaoImpl implements NoticeDao {
 	public int total() {
 		int tot = 0;
 		/* System.out.println("NoticeDaoImpl Start total..."); */
-		logger.info("NoticeDaoImpl Start total...");
+		logger.info("NoticeDaoImpl total 토탈시작");
 		
 		try {					//mapper ID
 			tot = session.selectOne("cbNoticeTotal");
@@ -34,7 +34,7 @@ public class NoticeDaoImpl implements NoticeDao {
 			logger.info("NoticeDaoImpl total tot =>" + tot);
 		}catch (Exception e) {
 			/* System.out.println("NoticeDaoImpl total Exception : " + e.getMessage()); */
-			logger.info("NoticeDaoImpl total Exception : " + e.getMessage());
+			logger.info("NoticeDaoImpl total Exception 발생 : " + e.getMessage());
 		}
 		return tot;
 	}
@@ -44,7 +44,7 @@ public class NoticeDaoImpl implements NoticeDao {
 	public List<NoticeDto> listNotice(NoticeDto noticeDto) {
 		List<NoticeDto>	noticeList = null;
 		/* System.out.println("NoticeDaoImpl noticeList Start...."); */
-		logger.info("NoticeDaoImpl noticeList Start....");
+		logger.info("NoticeDaoImpl noticeList 리스트시작");
 		try {
 			// Naming Rule                  Map Id       parameter
 			noticeList = session.selectList("cbNoticeList", noticeDto);
@@ -52,7 +52,7 @@ public class NoticeDaoImpl implements NoticeDao {
 			logger.info("NoticeDaoImpl noticeList =>>" + noticeList);
 		}catch (Exception e) {
 			/* System.out.println("NoticeDaoImpl listNotice Exception :" + e.getMessage()); */
-			logger.info("NoticeDaoImpl listNotice Exception :" + e.getMessage());
+			logger.info("NoticeDaoImpl listNotice Exception 발생 :" + e.getMessage());
 		}
 		
 		return noticeList;
@@ -62,7 +62,7 @@ public class NoticeDaoImpl implements NoticeDao {
 	@Override
 	public NoticeDto noticeDetail(int n_no) {
 		
-		logger.info("NoticeDaoImpl noticeDetail Start..");
+		logger.info("NoticeDaoImpl noticeDetail 상세보기 시작");
 		NoticeDto noticeDto = new NoticeDto();
 		
 		try {
@@ -71,15 +71,29 @@ public class NoticeDaoImpl implements NoticeDao {
 			
 		}catch (Exception e) {
 			
-			logger.info("NoticeDaoImpl noticeDetail Exception =>>>>" + e.getMessage());
+			logger.info("NoticeDaoImpl noticeDetail Exception발생 =>>>>" + e.getMessage());
 		}
 		
 		return noticeDto;
 	}
+	
+	/* ------------------- 조회수 증가 ------------------- */
+	@Override
+	public void NoticeHit(int n_no) {
+		logger.info("NoticeDaoImpl NoticeHit 조회수 증가 시작");
+		
+		try {
+			session.update("cbNoticeHit", n_no);
+		}catch (Exception e) {
+			logger.info("NoticeDaoImpl NoticeHit Exception발생 =>>>>" + e.getMessage());
+		}
+		
+	}
+	
 	/* ------------------- 수정 ------------------- */
 	@Override
 	public NoticeDto noticeContent(int n_no) {
-		logger.info("NoticeDaoImpl noticeContent Start..");
+		logger.info("NoticeDaoImpl noticeContent 수정폼 시작");
 		NoticeDto noticeDto = new NoticeDto();
 		
 		try {
@@ -87,7 +101,7 @@ public class NoticeDaoImpl implements NoticeDao {
 			logger.info("NoticeDaoImpl noticeContent + noticeDto.getN_no() =>" + noticeDto.getN_no());
 			
 		}catch (Exception e) {
-			logger.info("NoticeDaoImpl noticeContent Exception =>>>" + e.getMessage());
+			logger.info("NoticeDaoImpl noticeContent Exception 발생 =>>>" + e.getMessage());
 		}
 		logger.info("NoticeDaoImpl noticeContent + noticeDto.getN_title() =>>>>>" + noticeDto.getN_title());
 		
@@ -96,17 +110,32 @@ public class NoticeDaoImpl implements NoticeDao {
 	/* ------------------- 수정-저장하기 ------------------- */
 	@Override
 	public int noticeUpdate(NoticeDto noticeDto) {
-		logger.info("NoticeDaoImpl noticeUpdate Start..");
+		logger.info("NoticeDaoImpl noticeUpdate 수정완료하기 시작");
 		int aaa = 0;
 		try {
 			aaa = session.update("cbNoticeUpdate", noticeDto);
 			logger.info("NoticeDaoImpl noticeUpdate + aaa =>" + aaa);
 		}catch (Exception e) {
-			logger.info("NoticeDaoImpl noticeUpdate Exception =>>>" + e.getMessage());
+			logger.info("NoticeDaoImpl noticeUpdate Exception 발생 =>>>" + e.getMessage());
 		}
 		logger.info("NoticeDaoImpl noticeUpdate + aaa =>>>>>" + aaa);
 		return aaa;
 	}
+	/* ------------------- 삭제 ------------------- */
+	@Override
+	public int noticeDelete(int n_no) {
+		logger.info("NoticeDaoImpl noticeDelete 삭제시작 ");
+		int result = 0;
+		
+		try {
+			result = session.delete("cbNoticeDelete",n_no);
+		}catch (Exception e) {
+			logger.info("NoticeDaoImpl noticeDelete Exception 발생 =>>>" + e.getMessage());
+		}
+		return result;
+	}
+
+	
 	
 	
 	

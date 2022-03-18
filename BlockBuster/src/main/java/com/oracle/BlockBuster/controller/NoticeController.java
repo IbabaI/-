@@ -17,6 +17,7 @@ import com.oracle.BlockBuster.model.NoticeDto;
 import com.oracle.BlockBuster.service.NoticeService;
 import com.oracle.BlockBuster.service.Paging;
 
+
 @Controller
 public class NoticeController {
 	
@@ -49,8 +50,12 @@ public class NoticeController {
 		model.addAttribute("listNotice", listNotice);
 		model.addAttribute("pg", pg);
 		
+		
+		
 		return "Notice/listNotice";
 	}
+	
+	
 	
 	/* ------------------- 게시글 상세보기 ------------------- */
 	@GetMapping(value = "Notice/noticeDetail")
@@ -60,6 +65,11 @@ public class NoticeController {
 		
 		logger.debug("NoticeController noticeDetail +noticeDto.getN_content() =>> " + noticeDto.getN_content());
 		model.addAttribute("noticeDto", noticeDto);
+		
+	/* ------------------- 조회수 증가 ------------------- */
+		logger.info("NoticeController NoticeHit 시작");
+		n_no = noticeDto.getN_no();
+		ns.NoticeHit(n_no);	
 		
 		return "Notice/noticeDetail";
 	}
@@ -88,6 +98,15 @@ public class NoticeController {
 		return"forward:listNotice";
 	}
 	
+	/* ------------------- 삭제 ------------------- */
+	@RequestMapping(value = "delete")
+	public String noticeDelete(int n_no, Model model) {
+		logger.info("NoticeController noticeDelete 시작");
+		int result = ns.noticeDelete(n_no);
+		Integer integer = result;
+		
+		return "redirect:listNotice";
+	}
 	
 	
 	

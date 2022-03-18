@@ -34,8 +34,10 @@
 
 
 <div class="container">
+  <form action="${pageContext.request.contextPath}noticeUpdate" id="frm" name="frm" method="post">
+  <input type="hidden" name="n_no" value="${noticeDto.n_no}">
 	<div class="card border-light">
-  <form action="noticeUpdate" id="frm" name="frm" method="post">
+		<tr><th>No</th><td>${noticeDto.n_no}</td></tr>
 		<div class="card-header">
 			<input class="card-title" id="n_title" name="n_title" placeholder="제목을 입력하세요" type="text" value="${noticeDto.n_title }" /> 
 		</div>
@@ -43,11 +45,12 @@
 		
 	
 		<div class="card-content">
-			<textarea rows="15" cols="140" id="n_content" name="n_content" placeholder="내용을 입력하세요" value="${noticeDto.n_content}">${noticeDto.n_content}</textarea>
+			<textarea rows="15" cols="147" id="n_content" name="n_content" placeholder="내용을 입력하세요" value="${noticeDto.n_content}">${noticeDto.n_content}</textarea>
 		</div>	
 			<tr><td colspan="2">
 	   		<button type="submit" value="저장"  onclick="insertCheck();return false;">저장</button>
 			<button type="button" value="취소" onclick="location.href='javascript:window.history.back();'">취소</button>
+	   		<button type="button" value="삭제" onclick="location.href='javascript:window.history.back();'">삭제</button>
 	   		</td>
   </form>
 	</div>

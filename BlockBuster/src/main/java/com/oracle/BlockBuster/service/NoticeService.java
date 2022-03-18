@@ -10,4 +10,6 @@ public interface NoticeService {
 	NoticeDto 				noticeDetail(int n_no);
 	NoticeDto 				noticeContent(int n_no);
 	int 					noticeUpdate(NoticeDto noticeDto);
+	void 					NoticeHit(int n_no);
+	int 					noticeDelete(int n_no);
 }

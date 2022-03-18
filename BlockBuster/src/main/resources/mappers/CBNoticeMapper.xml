@@ -17,20 +17,31 @@
 		)
 		where rn between #{start} AND  #{end}  <!--  between 는 >=를 의미 -->
 	</select>
+	
 	<!-- 상세보기 -->
 	<select id="cbNoticeDetail" parameterType="int" resultType="noticeDto">
 		select * from notice where n_no = #{n_no}
 	</select>
 	
+	<!-- 조회수 증가 -->
+	<update id="cbNoticeHit">
+		update notice SET n_hit=n_hit+1 where n_no=#{n_no}
+	</update>
+	
 	<!-- 수정화면보기 -->
 	<select id="cbNoticeContent" parameterType="int" resultType="noticeDto">
 		select * from notice where n_no = #{n_no}	
 	</select>
+	
 	<!-- 수정완료 -->
 	<update id="cbNoticeUpdate" parameterType="noticeDto" >
 		 update notice set n_title=#{n_title}, n_content=#{n_content}	               
 		 where n_no=#{n_no}
 	</update>
 	
+	<!-- 삭제 -->
+<!-- 	<delete id="cbNoticeDelete" parameterType="noticeDto">
+		delete from notice where n_no=#{n_no}
+	</delete> -->
 </mapper>
 

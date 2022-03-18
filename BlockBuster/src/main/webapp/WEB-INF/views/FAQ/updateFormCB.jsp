@@ -15,7 +15,7 @@
 			alert("제목을 입력해주세요.");
 			f_title.focus();
 			return;
-		}else if(r_content.value.length == 0){
+		}else if(f_content.value.length == 0){
 			alert("내용을 입력해주세요.");
 			f_content.focus();
 			return;

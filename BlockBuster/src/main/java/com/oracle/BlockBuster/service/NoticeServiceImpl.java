@@ -50,6 +50,14 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		return noticeDto;
 	}
+	/* ------------------- 조회수 증가 ------------------- */
+	@Override
+	public void NoticeHit(int n_no) {
+		logger.info("NoticeServiceImpl NoticeHit 조회수 증가시작");
+		
+		nd.NoticeHit(n_no);
+		
+	}
 
 	/* ------------------- 수정 ------------------- */
 	@Override
@@ -70,5 +78,15 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		return aaa;
 	}
+	/* ------------------- 삭제 ------------------- */
+	@Override
+	public int noticeDelete(int n_no) {
+		int result = 0;
+		logger.info("NoticeServiceImpl noticeDelete 삭제시작 ");
+		result = nd.noticeDelete(n_no);
+		return result;
+	}
+
+	
 	
 }
