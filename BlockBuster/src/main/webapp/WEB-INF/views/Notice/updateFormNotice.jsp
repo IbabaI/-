@@ -22,6 +22,10 @@
 		$('#frm').submit();
 	}
 	</script>
+	
+<style type="text/css">
+
+</style>
 </head>
 <body>
 <pre>

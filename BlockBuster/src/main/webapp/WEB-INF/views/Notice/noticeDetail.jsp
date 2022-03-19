@@ -8,6 +8,24 @@
 <head>
 <meta charset="UTF-8">
 <title>상세내용</title>
+<script type="text/javascript">
+
+/* 게시글 삭제 전 check */
+function chk(){
+	
+	if (confirm("정말 삭제하시겠습니까? 삭제할 경우, 게시글 복원은 불가합니다.") == true){   
+	    location.href="noticeDelete?n_no=${noticeDto.n_no}"
+	}else{  
+	 	   return false;	
+		 }
+}
+
+</script>
+
+<style type="text/css">
+
+</style>
+
 </head>
 <body>
 <pre>
@@ -27,11 +45,13 @@
 	
 		<div>
 			<h6 class="card-body">${noticeDto.n_content}</h6>
-			<input type="button" value="수정" onclick="location.href='${pageContext.request.contextPath}/Notice/updateFormNotice?n_no=${noticeDto.n_no}'">
+			<%-- <input type="button" value="수정" onclick="location.href='${pageContext.request.contextPath}/Notice/updateFormNotice?n_no=${noticeDto.n_no}'"> --%>
+			<%-- <input type="button" value="삭제" onclick="location.href='${pageContext.request.contextPath}noticeDelete?n_no=${noticeDto.n_no}'"> --%>
+			<!-- <button type="button" value="목록" onclick="location.href='javascript:window.history.back();'">목록</button> -->
 			
 			<a href="${pageContext.request.contextPath}/Notice/updateFormNotice?n_no=${noticeDto.n_no}" >수정</a>
-			<button type="button" value="목록" onclick="location.href='javascript:window.history.back();'">목록</button>
-			<input type="button" value="삭제" onclick="location.href='${pageContext.request.contextPath}noticeDelete?n_no=${noticeDto.n_no}'">
+			<a href="" class="text-muted" onclick="chk(); return false;">삭제</a>&emsp;
+			<a href="javascript:window.history.back();" >목록</a>
 		</div>	
 	</div>
 </div>
