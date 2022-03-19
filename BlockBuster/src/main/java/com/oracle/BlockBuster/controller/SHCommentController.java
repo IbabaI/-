@@ -21,7 +21,7 @@ import com.oracle.BlockBuster.service.loginCheck;
 
 @Controller
 public class SHCommentController {
-
+ 
 	private static final Logger logger = LoggerFactory.getLogger(SHCommentController.class);
 	
 	@Autowired

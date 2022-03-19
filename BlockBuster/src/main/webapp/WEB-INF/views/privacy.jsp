@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>개인정보보호정책</title>
-<style>
+<style> 
 
 /* body{	
 	width :   85%;

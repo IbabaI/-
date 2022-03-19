@@ -7,7 +7,7 @@ import com.oracle.BlockBuster.model.PdtSearchVo;
 import com.oracle.BlockBuster.model.Product;
 import com.oracle.BlockBuster.model.ProductApiVo;
 import com.oracle.BlockBuster.model.ProductVo;
-
+ 
 public interface HTDao {
 
 	List<Product> HTGetSearchResult(String keyword);

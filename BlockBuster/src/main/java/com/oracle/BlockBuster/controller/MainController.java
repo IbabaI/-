@@ -12,7 +12,7 @@ import com.oracle.BlockBuster.service.MainService;
 
 @Controller
 public class MainController {
-
+ 
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
 	@Autowired

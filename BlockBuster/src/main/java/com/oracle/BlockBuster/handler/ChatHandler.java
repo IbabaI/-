@@ -12,7 +12,7 @@ import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
-
+ 
 @Component 
 public class ChatHandler extends TextWebSocketHandler {
 	//웹소켓 세션을 담아둘 맵

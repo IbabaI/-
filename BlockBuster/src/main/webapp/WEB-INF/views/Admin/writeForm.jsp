@@ -2,7 +2,7 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ include file="../header.jsp" %> 
-<html>
+<html> 
 <%
 	String context = request.getContextPath();
 %>

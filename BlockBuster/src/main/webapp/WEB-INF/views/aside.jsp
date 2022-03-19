@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%> 
 <style>
 aside#aside li { position:relative;}
 aside#aside li:hover { background:#ff7f00;}   

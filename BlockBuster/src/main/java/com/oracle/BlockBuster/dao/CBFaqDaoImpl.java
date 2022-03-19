@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.oracle.BlockBuster.model.CBSearchVO;
 import com.oracle.BlockBuster.model.CBfaqDto;
-
+ 
 @Repository
 public class CBFaqDaoImpl implements CBFaqDao {
 	

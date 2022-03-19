@@ -25,7 +25,7 @@ import com.oracle.BlockBuster.service.loginCheck;
 
 @Controller
 public class JJMemberController {
-	
+ 	
 private static final Logger logger = LoggerFactory.getLogger(JJMemberController.class);
 	
 	@Autowired

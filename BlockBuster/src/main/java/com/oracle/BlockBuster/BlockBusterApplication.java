@@ -8,6 +8,6 @@ public class BlockBusterApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BlockBusterApplication.class, args);
-	}
+	} 
 
 }

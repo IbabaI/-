@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>통합 검색 결과</title>

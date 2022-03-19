@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.oracle.BlockBuster.model.JJMember;
 import com.oracle.BlockBuster.model.Member;
-
+ 
 @Repository
 public class JJMemberDaoImpl implements JJMemberDao {
 	

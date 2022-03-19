@@ -8,7 +8,7 @@ import com.oracle.BlockBuster.model.OrderList;
 import com.oracle.BlockBuster.model.Payment;
 import com.oracle.BlockBuster.model.PaymentDetails;
 import com.oracle.BlockBuster.model.Product;
-
+ 
 public interface JEDao {
 
 	int total();

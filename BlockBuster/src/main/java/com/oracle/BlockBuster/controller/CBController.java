@@ -24,7 +24,7 @@ import com.oracle.BlockBuster.service.loginCheck;
 
 @Controller
 public class CBController {
-	
+ 	
 	  @Autowired 
 	  private CBService fs; // Service 연결
 	  

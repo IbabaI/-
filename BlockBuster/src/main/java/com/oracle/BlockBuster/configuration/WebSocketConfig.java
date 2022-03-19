@@ -11,7 +11,7 @@ import com.oracle.BlockBuster.handler.ChatHandler;
 @Configuration
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
-
+ 
 	@Autowired
 	ChatHandler chatHandler;
 	

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="JJMemberDao">
-	
+ 	
 	<select id="idpwChk" parameterType="JJMember" resultType="java.lang.String">
 		select count(*) from member where id like #{id, jdbcType=VARCHAR} and password like #{password, jdbcType=VARCHAR}
 	</select>

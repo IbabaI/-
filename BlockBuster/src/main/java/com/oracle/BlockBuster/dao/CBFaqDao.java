@@ -5,7 +5,7 @@ import java.util.List;
 import com.oracle.BlockBuster.model.CBSearchVO;
 import com.oracle.BlockBuster.model.CBfaqDto;
 
-
+ 
 public interface CBFaqDao {
 
 	int					 total();

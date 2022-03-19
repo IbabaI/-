@@ -3,7 +3,7 @@ package com.oracle.BlockBuster.model;
 import lombok.Setter;
 
 import lombok.Getter;
-
+ 
 @Getter
 @Setter
 public class CartList {

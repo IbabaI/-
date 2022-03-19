@@ -20,7 +20,7 @@ import com.oracle.BlockBuster.model.SHTitleModel;
 public class SHReviewDaoImpl implements SHReviewDao {
 	private static final Logger logger = LoggerFactory.getLogger(SHReviewDao.class);
 	
-	
+ 	
 	@Autowired
 	private  SqlSession  session;
 	

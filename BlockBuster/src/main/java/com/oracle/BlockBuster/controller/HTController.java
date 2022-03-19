@@ -18,7 +18,7 @@ import com.oracle.BlockBuster.service.HTService;
 
 @Controller
 public class HTController {
-	
+ 	
 	@Autowired
 	private HTService hts;
 	

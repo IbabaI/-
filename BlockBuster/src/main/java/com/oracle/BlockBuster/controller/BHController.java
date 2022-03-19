@@ -19,7 +19,7 @@ import com.oracle.BlockBuster.service.BHService;
 
 @Controller
 public class BHController{
-	
+ 	
 	@Autowired BHService bh;
 	
 	private static final Logger logger = LoggerFactory.getLogger(BHController.class);

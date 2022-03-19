@@ -17,7 +17,7 @@ import com.oracle.BlockBuster.service.loginCheck;
 
 @Controller
 public class loginController {
-
+ 
 	private static final Logger logger = LoggerFactory.getLogger(loginController.class);
 
 	@Autowired

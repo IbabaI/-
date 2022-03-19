@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <script src="https://use.fontawesome.com/c560c025cf.js"></script>
-<style>
+<style> 
 .quantity {
     float: left;
     margin-right: 15px;

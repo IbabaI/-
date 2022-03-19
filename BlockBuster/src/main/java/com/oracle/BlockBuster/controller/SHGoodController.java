@@ -15,7 +15,7 @@ import com.oracle.BlockBuster.service.SHService;
 
 @Controller
 public class SHGoodController {
-	
+ 	
 private static final Logger logger = LoggerFactory.getLogger(SHGoodController.class);
 	
 	@Autowired

@@ -1,7 +1,7 @@
 package com.oracle.BlockBuster.dao;
 
 import com.oracle.BlockBuster.model.Member;
-
+ 
 public interface DHDao {
 
 	Member memberDetail(String id);

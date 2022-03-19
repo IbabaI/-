@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+ 
 <mapper namespace="HTDao">  
 	<!-- sql에 특수문자 많이 들어가거나 <>거 들어가면 <![CDATA[sql문장]]> 처리 해보기-->
 	<!--통합검색의 검색 결과 리스트-->

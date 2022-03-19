@@ -40,7 +40,7 @@ import com.oracle.BlockBuster.service.loginCheck;
 
 @Controller
 public class JEController {
-
+ 
 	private static final Logger logger = LoggerFactory.getLogger(JEController.class);
 	
 	@Autowired

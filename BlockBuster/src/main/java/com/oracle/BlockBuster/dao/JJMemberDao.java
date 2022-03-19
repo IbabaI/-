@@ -2,7 +2,7 @@ package com.oracle.BlockBuster.dao;
 
 import com.oracle.BlockBuster.model.JJMember;
 import com.oracle.BlockBuster.model.Member;
-
+ 
 public interface JJMemberDao {
 
 	String  login(JJMember member);

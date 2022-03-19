@@ -8,7 +8,7 @@ import com.oracle.BlockBuster.service.SHInterceptorService;
 
 @Configuration
 public class SHInterceptorConfig implements WebMvcConfigurer {
-	
+
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) { 

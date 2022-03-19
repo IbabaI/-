@@ -11,7 +11,7 @@ import com.oracle.BlockBuster.model.SHSearchModel;
 import com.oracle.BlockBuster.model.SHTitleModel;
 
 public interface SHReviewDao {
-	
+ 	
 	
 	//게시판 리스트 검색창
 	List<SHReviewModel> search(SHSearchModel searchModel);
