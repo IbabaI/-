@@ -34,8 +34,9 @@
 
 
 <div class="container">
-  <form action="${pageContext.request.contextPath}/writeNotice" id="frm" name="frm" method="post">
+  <form action="${pageContext.request.contextPath}writeNotice" id="frm" name="frm" method="post">
 	<input type="hidden" name="id"  value="${sessionScope.sessionId}" > 
+	<input type="hidden" name="n_no" value="1">
 	<div class="card border-light">
 		
 		<div class="card-header">
@@ -48,12 +49,12 @@
 			<tr><th>내용</th><td><textarea rows="15" cols="147" id="n_content" name="n_content" placeholder="내용을 입력하세요" required="required"></textarea></td></tr>
 		</div>	
 			<tr><td colspan="2">
-	   		<button type="submit" value="저장"  onclick="insertCheck();return false;">저장</button>
-			<button type="button" value="취소" onclick="location.href='javascript:window.history.back();'">취소</button>
+	   		<input type="submit" value="저장"  onclick="insertCheck();return false;" />
+			<input type="button" value="취소" onclick="location.href='javascript:window.history.back();'" />
 	   		
 	   		</td>
-  </form>
 	</div>
+  </form>
 </div>
 
 <pre>

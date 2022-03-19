@@ -41,7 +41,7 @@
 	
 	<!-- 쓰기저장완료 -->
 	<insert id="cbNoticeWrite" parameterType="noticeDto">
-		insert into notice(n_no, id, n_title, n_content )values(NOTICE_N_NO_SEQ.nextval, #{id}, #{n_title}, #{n_content} )
+		insert into notice(n_no, id, n_title, n_content <if test="n_img!=null"> ,n_img </if> )values(NOTICE_N_NO_SEQ.nextval, #{id}, #{n_title}, #{n_content} <if test="n_img!=null">,#{n_img} </if> )
 	</insert>
 	
 	<!-- 삭제 -->

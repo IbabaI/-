@@ -78,18 +78,17 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		return aaa;
 	}
+	
 	/* ------------------- 쓰기-저장하기 ------------------- */
 	@Override
 	public int insert(NoticeDto noticeDto) {
 		int result = 0;
 		logger.info("NoticeServiceImpl insert 쓰기 저장 시작");
 		result = nd.insert(noticeDto);
+		System.out.println("=================NoticeServiceImpl insert  + result" + result);
 		
 		return result;
 	}
-
-	
-	
 	
 	/* ------------------- 삭제 ------------------- */
 	@Override
@@ -99,6 +98,8 @@ public class NoticeServiceImpl implements NoticeService {
 		result = nd.noticeDelete(n_no);
 		return result;
 	}
+
+	
 
 	
 	

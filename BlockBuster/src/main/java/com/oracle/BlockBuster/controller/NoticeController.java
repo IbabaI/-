@@ -108,15 +108,16 @@ public class NoticeController {
 	}
 	
 	/* ------------------- 쓰기-저장하기 ------------------- */
-	@RequestMapping(value = "writeNotice", method = RequestMethod.POST)
+	@RequestMapping(value = "Notice/writeNotice", method = RequestMethod.POST)
 	public String writeNotice(NoticeDto noticeDto, Model model) {
 		logger.info("NoticeController writeNotice 쓰기 저장 시작");
 		int result = ns.insert(noticeDto);
+		System.out.println("==============게시글 작성 반영 결과 : " + result);
 		if(result > 0) {
-			return "redirect:notice/listNotice";
+			return "redirect:listNotice";
 		}
 			model.addAttribute("입력 실패 - 확인해보세요");
-			return "forward:Notice/noticeWrite";
+			return "forward:Notice/writeFormNotice";
 	}
 	
 	/* ------------------- 삭제 ------------------- */
