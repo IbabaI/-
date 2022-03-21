@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.oracle.BlockBuster.dao.NoticeDao;
+import com.oracle.BlockBuster.model.NoticeCommentDto;
 import com.oracle.BlockBuster.model.NoticeDto;
 
 @Service
@@ -97,6 +98,17 @@ public class NoticeServiceImpl implements NoticeService {
 		logger.info("NoticeServiceImpl noticeDelete 삭제시작 ");
 		result = nd.noticeDelete(n_no);
 		return result;
+	}
+	
+	
+	/* ------------------- 댓글문의 ------------------- */
+	@Override
+	public int noticeComment(NoticeCommentDto noticeCommentDto) {
+		logger.info("NoticeServiceImpl noticeComment 댓글입력시작 --------------");
+		
+		int commentResult = nd.noticeComment(noticeCommentDto);
+		
+		return commentResult;
 	}
 
 	

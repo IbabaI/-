@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.oracle.BlockBuster.model.NoticeCommentDto;
 import com.oracle.BlockBuster.model.NoticeDto;
 
 
@@ -149,6 +150,23 @@ public class NoticeDaoImpl implements NoticeDao {
 			logger.info("NoticeDaoImpl noticeDelete Exception 발생 =>>>" + e.getMessage());
 		}
 		return result;
+	}
+
+	
+	/* ------------------- 댓글문의 ------------------- */
+	@Override
+	public int noticeComment(NoticeCommentDto noticeCommentDto) {
+		logger.info("NoticeDaoImpl noticeComment 댓글문의 시작========");
+		
+		int commentResult = 0;
+		
+		try {
+			commentResult = session.insert("cbNoticeComment", noticeCommentDto);
+		} catch (Exception e) {
+			logger.info("NoticeDaoImpl noticeComment Exception 발생 =>>>" + e.getMessage());
+		}
+		
+		return commentResult;
 	}
 
 	

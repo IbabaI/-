@@ -13,16 +13,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.oracle.BlockBuster.model.NoticeCommentDto;
 import com.oracle.BlockBuster.model.NoticeDto;
 import com.oracle.BlockBuster.service.NoticeService;
 import com.oracle.BlockBuster.service.Paging;
+import com.oracle.BlockBuster.service.loginCheck;
 
 
 @Controller
 public class NoticeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(NoticeController.class);
+	
+	@Autowired
+	private loginCheck loginCheck; //ID session 가져오는 module
 	
 	/* ------------------- service 연결 ------------------- */
 	@Autowired
@@ -132,7 +138,19 @@ public class NoticeController {
 	
 	
 	
-	
+	/* ------------------- 댓글문의 ------------------- */
+	@RequestMapping(value = "noticeComment")
+	@ResponseBody
+	public String noticeComment(NoticeCommentDto noticeCommentDto, HttpServletRequest request) {
+		logger.info("NoticeController noticeComment 시작-----------");
+		noticeCommentDto.setId(loginCheck.checkSessionId(request));
+		
+		int commentResult = ns.noticeComment(noticeCommentDto);
+		logger.info("NoticeController noticeComment 댓글 작성 결과" + commentResult);
+		String commentResultStr = String.valueOf(commentResult);
+		
+		return commentResultStr;
+	}
 	
 	
 }
