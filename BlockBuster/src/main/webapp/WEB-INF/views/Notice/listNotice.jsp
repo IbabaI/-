@@ -8,9 +8,12 @@
 
 <meta charset="UTF-8">
 <title>Notice</title>
+
 <style type="text/css">
 
+.list1 td{
 
+}
 
 
 .pag{
@@ -43,15 +46,15 @@
 	
 	<!-- 게시글 리스트 출력 -->	
 	<table>
-		<tr class="table-active">
-			<th scope="row"><b>번호</b></th>
-			<th scope="row"><b>제 목</b></th>
-			<th scope="row"><b>작성자</b></th>
-			<th scope="row"><b>조회수</b></th>
-			<th scope="row"><b>등록일</b></th>
+		<tr class="hader">
+			<th><b>번호</b></th>
+			<th><b>제 목</b></th>
+			<th><b>작성자</b></th>
+			<th><b>조회수</b></th>
+			<th><b>등록일</b></th>
 		</tr>
 		<c:forEach var="notice" items="${listNotice }">
-		<tr class="list2">
+		<tr class="list1">
 			<td onclick="location.href='${pageContext.request.contextPath}/Notice/noticeDetail?n_no=${notice.n_no}'">${notice.n_no }</td>
 			<td onclick="location.href='${pageContext.request.contextPath}/Notice/noticeDetail?n_no=${notice.n_no}'">${notice.n_title }</td>
 			<td onclick="location.href='${pageContext.request.contextPath}/Notice/noticeDetail?n_no=${notice.n_no}'">${notice.id }</td>

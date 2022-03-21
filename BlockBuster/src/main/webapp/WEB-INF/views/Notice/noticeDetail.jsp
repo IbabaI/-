@@ -38,6 +38,8 @@ function chk(){
 
 
 <div class="container">
+
+	<!-- 게시글 상세내용 -->
 	<div>
 		<h3 class="card-header">${noticeDto.n_no }  &emsp;${noticeDto.n_title }</h3>
 		<h6 class="card-header"> 작성자 : ${noticeDto.id} &emsp;|&emsp;${noticeDto.n_date }&emsp;|&emsp;${noticeDto.n_hit} </h6></h6>
@@ -54,6 +56,24 @@ function chk(){
 			<a href="javascript:window.history.back();" >목록</a>
 		</div>	
 	</div>
+	
+	
+	<!-- 게시글 댓글 폼 -->
+	<div class="card-body col-sm-12" style="padding-left: 0px;">		
+	  <div class="form-group">
+		<div class="col-sm-10" style="float: left; padding-left: 0px;">
+			<textarea mexlength="300" id="" class="form-control" rows="3" placeholder="댓글을 입력해 주세요"></textarea>
+		</div> 
+	  </div> 
+
+
+		 <div class="col-sm-2" style="float: left;">
+			<button type="button" class="btn btn-warning" id="" onclick="" style="width: 100%; margin-top: 10px"> 댓글문의 </button>
+		</div>
+
+			
+		</div>
+	
 </div>
 
 <pre>
