@@ -50,6 +50,11 @@
 	</delete>
 	
 	
+	<!--  댓글 기능  -->
+	<insert id="cbNoticeComment" parameterType="NoticeCommentDto" >
+		insert into Notice_COMMENTS(n_no, nc_no, id, nc_content) VALUES(#{n_no}, Notice_COMMENT_NC_NO_SEQ.nextval, #{id}, #{nc_content})
+	</insert>
+	
 	
 </mapper>
 

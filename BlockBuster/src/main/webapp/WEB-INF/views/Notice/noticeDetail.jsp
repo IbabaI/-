@@ -20,6 +20,48 @@ function chk(){
 		 }
 }
 
+/* 댓글 리스트 출력 - 호출 */
+$(function(){
+	listComment("1");
+}); 
+
+/*  댓글 입력 검증하기  */
+function insertComment1(){
+	nc_content.value = nc_content.value.trim();
+	
+	if(nc_content.value.length==0){
+		alert("문의사항을 입력하세요");
+		nc_content.focus();
+		return;
+	}
+	insertComment2();
+}
+
+/*  검증 완료 후 등록 */
+function insertComment2(){
+	
+	var n_no ="${noticeDto.n_no}"; //게시판 글 번호
+	var nc_content=$("nc_content").val(); //댓글 내용
+	
+		$.ajax({
+			type : 'post',
+			url : "${pageContext.request.contextPath}/noticeComment",
+			data : {'n_no' : n_no , 'nc_content' : nc_content },
+			dataType : 'text',
+			
+			success : function(data){
+				if(data>0){
+					alert("문의사항이 등록 되었습니다.");
+				}else{
+					alert("문의사항 등록에 실패하였습니다.");
+				}
+				listComment("1");
+				$('#nc_content').val("");
+			}
+		});
+}
+
+
 </script>
 
 <style type="text/css">
@@ -60,19 +102,17 @@ function chk(){
 	
 	<!-- 게시글 댓글 폼 -->
 	<div class="card-body col-sm-12" style="padding-left: 0px;">		
-	  <div class="form-group">
-		<div class="col-sm-10" style="float: left; padding-left: 0px;">
-			<textarea mexlength="300" id="" class="form-control" rows="3" placeholder="댓글을 입력해 주세요"></textarea>
+		<div class="form-group">
+			<div class="col-sm-10" style="float: left; padding-left: 0px;">
+				<textarea mexlength="300" id="nc_content" class="form-control" rows="3" placeholder="댓글을 입력해 주세요"></textarea>
+			</div> 
 		</div> 
-	  </div> 
 
 
 		 <div class="col-sm-2" style="float: left;">
-			<button type="button" class="btn btn-warning" id="" onclick="" style="width: 100%; margin-top: 10px"> 댓글문의 </button>
+			<button type="button" class="btn btn-warning" id="commentSubmit1" onclick="insertComment1()" style="width: 100%; margin-top: 10px"> 댓글문의 </button>
 		</div>
-
-			
-		</div>
+	</div>
 	
 </div>
 
