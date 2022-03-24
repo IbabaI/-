@@ -25,5 +25,7 @@ public interface NoticeDao {
 
 	
 	// 댓글문의
-	int 				noticeComment(NoticeCommentDto noticeCommentDto); 
+	int 					noticeComment(NoticeCommentDto noticeCommentDto);
+
+	List<NoticeCommentDto> 	noticeCommentList(NoticeCommentDto noticeCommentDto);
 }

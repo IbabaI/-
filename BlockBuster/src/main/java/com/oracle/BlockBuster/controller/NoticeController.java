@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -151,6 +152,19 @@ public class NoticeController {
 		
 		return commentResultStr;
 	}
+	
+	/* ------------------- 댓글리스트 ------------------- */
+	@RequestMapping(value = "noticeCommentList")
+	public String noticeCommentList(NoticeCommentDto noticeCommentDto, Model model) {
+		logger.info("NoticeController noticeCommentList 시작");
+		
+		List<NoticeCommentDto> noticeCommentList = ns.noticeCommentList(noticeCommentDto);
+		model.addAttribute("noticeCommentList", noticeCommentList);
+				
+		return "Notice/noticeCommentList";
+	}
+	
+	
 	
 	
 }

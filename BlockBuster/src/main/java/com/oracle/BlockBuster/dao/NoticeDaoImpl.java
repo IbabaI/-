@@ -168,6 +168,22 @@ public class NoticeDaoImpl implements NoticeDao {
 		
 		return commentResult;
 	}
+	
+	/* ------------------- 댓글리스트 ------------------- */
+	@Override
+	public List<NoticeCommentDto> noticeCommentList(NoticeCommentDto noticeCommentDto) {
+		logger.info("NoticeDaoImpl noticeCommentList 댓글리스트 시작========");
+		
+		List<NoticeCommentDto> noticeCommentList = null;
+		
+		try {
+			noticeCommentList = session.selectList("cbCommentList",noticeCommentDto);
+		} catch (Exception e) {
+			logger.info("NoticeDaoImpl noticeCommentList Exception 발생 =>>>" + e.getMessage());
+		}
+		
+		return null;
+	}
 
 	
 

@@ -41,7 +41,7 @@ function insertComment1(){
 function insertComment2(){
 	
 	var n_no ="${noticeDto.n_no}"; //게시판 글 번호
-	var nc_content=$("nc_content").val(); //댓글 내용
+	var nc_content=$("#nc_content").val(); //댓글 내용
 	
 		$.ajax({
 			type : 'post',
@@ -60,6 +60,21 @@ function insertComment2(){
 			}
 		});
 }
+
+/* 댓글 리스트 출력 */
+function listComment(Vnum){
+	
+	var num = Vnum;
+	
+	$.ajax({
+		type : 'post',
+		url : "${pageContext.request.contextPath}/noticeCommentCB?n_no=${noticeDto.n_no}"+num,
+				
+		success : function(data){
+			$("#noticeCommentCB").html(data);	//이전 내용을 지우고 HTML 태그를 포함하여 선택한 요소 안의 새로운 내용을 넣습니다				
+		}
+	});
+ } 
 
 
 </script>
@@ -114,6 +129,9 @@ function insertComment2(){
 		</div>
 	</div>
 	
+	<div id="noticeCommentCB">
+	<%@ include file="noticeCommentList.jsp" %>
+	</div>
 </div>
 
 <pre>

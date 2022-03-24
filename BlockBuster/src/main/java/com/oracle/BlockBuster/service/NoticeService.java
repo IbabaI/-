@@ -18,5 +18,5 @@ public interface NoticeService {
 	
 	// 댓글문의
 	int 					noticeComment(NoticeCommentDto noticeCommentDto);
-
+	List<NoticeCommentDto> 	noticeCommentList(NoticeCommentDto noticeCommentDto);
 }

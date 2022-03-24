@@ -110,6 +110,16 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		return commentResult;
 	}
+	
+	/* ------------------- 댓글리스트 ------------------- */
+	@Override
+	public List<NoticeCommentDto> noticeCommentList(NoticeCommentDto noticeCommentDto) {
+		logger.info("NoticeServiceImpl noticeCommentList 댓글리스트 시작 --------------");
+		
+		List<NoticeCommentDto> noticeCommentList = nd.noticeCommentList(noticeCommentDto);
+		
+		return noticeCommentList;
+	}
 
 	
 
